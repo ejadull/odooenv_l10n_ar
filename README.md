@@ -5,7 +5,7 @@ Con solo bajar el odooenv y este repositorio ya podemos empezar a utilizar la lo
 La instalación es sencilla:
 
 ```
-   git clone git@github.com:odoo-l10n-ar/odooenv_l10n_ar.git l10n_ar
+   git clone --recurse-submodules git@github.com:odoo-l10n-ar/odooenv_l10n_ar.git l10n_ar
    cd l10n_ar
    virtualenv --clear .
    odooenv install
