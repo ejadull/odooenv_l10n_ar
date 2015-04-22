@@ -1,0 +1,100 @@
+sources:
+    dir: '{root}/sources'
+    repos:
+        odoo:
+            url: https://github.com/odoo/odoo.git
+            branch: 8.0
+            method: setup
+        l10n_ar_states:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_states.git
+            branch: master
+        l10n_ar_base_vat:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_base_vat.git
+            branch: master
+        l10n_ar_chart:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_chart.git
+            branch: master
+        l10n_ar_wsafip_puc:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_wsafip_puc.git
+            branch: master
+        l10n_ar_wsafip_fe:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_wsafip_fe.git
+            branch: master
+        l10n_ar_wsafip:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_wsafip.git
+            branch: master
+        l10n_ar_vat_reports:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_vat_reports.git
+            branch: master
+        l10n_ar_partner_title:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_partner_title.git
+            branch: master
+        l10n_ar_invoice:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_invoice.git
+            branch: master
+        l10n_ar_bank:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_bank.git
+            branch: master
+        odoo-crypto:
+            url: git@github.com:ctmil/odoo-crypto.git
+            branch: master
+        report_tex:
+            url: git@github.com:ctmil/odoo-report-tex.git
+            branch: master
+        l10n_ar_invoice_tex:
+            url: git@github.com:odoo-l10n-ar/l10n_ar_invoice_tex.git
+            branch: master
+
+test:
+    hr:
+        addons:
+            hr
+    l10n_ar_base:
+        addons:
+            l10n_ar_states
+            l10n_ar_bank
+
+    l10n_ar_invoice:
+        addons:
+            l10n_ar_invoice
+
+    l10n_ar_wsafip_fe:
+        logfile: log/test_wsafip_fe.log
+        addons:
+            l10n_ar_wsafip_fe
+    crypto:
+        addons:
+            crypto
+
+addons:
+    config: '__openerp__.py'
+reports:
+    dir: '{root}/reports'
+snapshots:
+    dir: '{root}/snapshots'
+server:
+    config: '{root}/etc/odoo-server.conf'
+logging:
+    version: 1
+    formatters:
+        simple:
+            format: '%(asctime)s:%(name)s:%(levelname)s:%(message)s'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            level: ERROR
+            formatter: simple
+            stream: ext://sys.stdout
+        file:
+            class: logging.FileHandler
+            level: DEBUG
+            formatter: simple
+            filename: '{root}/log/odooenv.log'
+    loggers:
+        odooenv:
+            level: DEBUG
+            handlers: [console, file]
+            propagate: no
+    root:
+        level: DEBUG
+        handlers: [console]
