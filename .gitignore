@@ -10,3 +10,4 @@ local/
 *.lo
 *.egg
 *.bk
+.ropeproject
