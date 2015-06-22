@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Reportes y funciones para CTMIL',
-    'version': '8.0.1.1',
+    'version': '8.0.1.2',
     'category': 'Generic Modules',
     'description': """
     """,
@@ -11,13 +11,9 @@
         'account',
         'l10n_ar_invoice',
     ],
-    'init_xml': [
-    ],
-    'update_xml': [
+    'data': [
         'reports.xml',
         'security/ctmil_security.xml',
-    ],
-    'demo_xml': [
     ],
     'installable': True,
     'active': False,

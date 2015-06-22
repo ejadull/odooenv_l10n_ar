@@ -1,6 +1,6 @@
 - Install Generic Chart Argentina template
 - !record {model: wizard.multi.charts.accounts, id: ri_chart_wizard }:
-    chart_template_id: l10n_ar_chart_generic.ri_a_root
+    chart_template_id: l10n_ar_chart.ri_a_root
 
 - Create accounts
 - !python {model: wizard.multi.charts.accounts}: |
