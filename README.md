@@ -13,3 +13,23 @@ La instalación es sencilla:
    odooenv enable all
 ```
 
+Modifique el archivo etc/odoo-server.conf para que quede configurado para su servidor.
+
+Para iniciar el servidor solo necesita ejecutar el comando:
+
+```
+   odooenv start
+```
+
+Para parar el servidor use el comando:
+
+```
+   odooenv stop
+```
+
+Si necesita debuggear use el comando:
+
+```
+   odooenv start --debug
+```
+
