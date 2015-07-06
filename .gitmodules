@@ -1,48 +1,48 @@
 [submodule "sources/odoo"]
 	path = sources/odoo
-	url = git@github.com:odoo/odoo.git
+	url = https://github.com/odoo/odoo.git
 	branch = 8.0
 [submodule "sources/l10n_ar_states"]
 	path = sources/l10n_ar_states
-	url = git@github.com:odoo-l10n-ar/l10n_ar_states.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_states.git
 	branch = 8.0
 [submodule "sources/l10n_ar_base_vat"]
 	path = sources/l10n_ar_base_vat
-	url = git@github.com:odoo-l10n-ar/l10n_ar_base_vat.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_base_vat.git
 	branch = 8.0
 [submodule "sources/l10n_ar_chart"]
 	path = sources/l10n_ar_chart
-	url = git@github.com:odoo-l10n-ar/l10n_ar_chart.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_chart.git
 	branch = 8.0
 [submodule "sources/l10n_ar_wsafip_fe"]
 	path = sources/l10n_ar_wsafip_fe
-	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip_fe.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_wsafip_fe.git
 	branch = 8.0
 [submodule "sources/l10n_ar_wsafip"]
 	path = sources/l10n_ar_wsafip
-	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_wsafip.git
 	branch = 8.0
 [submodule "sources/l10n_ar_partner_title"]
 	path = sources/l10n_ar_partner_title
-	url = git@github.com:odoo-l10n-ar/l10n_ar_partner_title.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_partner_title.git
 	branch = 8.0
 [submodule "sources/l10n_ar_invoice"]
 	path = sources/l10n_ar_invoice
-	url = git@github.com:odoo-l10n-ar/l10n_ar_invoice.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_invoice.git
 	branch = 8.0
 [submodule "sources/l10n_ar_bank"]
 	path = sources/l10n_ar_bank
-	url = git@github.com:odoo-l10n-ar/l10n_ar_bank.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_bank.git
 	branch = 8.0
 [submodule "sources/odoo-crypto"]
 	path = sources/odoo-crypto
-	url = git@github.com:ctmil/odoo-crypto.git
+	url = https://github.com/ctmil/odoo-crypto.git
 	branch = 8.0
 [submodule "sources/report_tex"]
 	path = sources/report_tex
-	url = git@github.com:ctmil/odoo-report-tex.git
+	url = https://github.com/ctmil/odoo-report-tex.git
 	branch = 8.0
 [submodule "sources/l10n_ar_invoice_tex"]
 	path = sources/l10n_ar_invoice_tex
-	url = git@github.com:odoo-l10n-ar/l10n_ar_invoice_tex.git
+	url = https://github.com/odoo-l10n-ar/l10n_ar_invoice_tex.git
 	branch = 8.0
