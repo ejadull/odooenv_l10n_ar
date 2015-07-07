@@ -8,7 +8,7 @@ La instalación es sencilla:
 
 ```
    sudo pip install odooenv
-   git clone --recurse-submodules --branch 8.0html https//github.com/odoo-l10n-ar/odooenv_l10n_ar.git l10nar_html
+   git clone --recurse-submodules --branch 8.0html https://github.com/odoo-l10n-ar/odooenv_l10n_ar.git l10nar_html
    cd l10n_ar
    virtualenv --clear .
    odooenv install
