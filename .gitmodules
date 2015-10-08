@@ -55,3 +55,6 @@
 [submodule "sources/account_journal_payment_subtype"]
 	path = sources/account_journal_payment_subtype
 	url = git@github.com:csrocha/account_journal_payment_subtype.git
+[submodule "sources/odoo-l10n-ar-directdebit"]
+	path = sources/odoo-l10n-ar-directdebit
+	url = git@github.com:ctmil/odoo-l10n-ar-directdebit.git
