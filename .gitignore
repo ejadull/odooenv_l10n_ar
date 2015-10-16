@@ -5,7 +5,9 @@ lib/
 include/
 local/
 var/
+addons/
 ~/
+.*.swp
 *.pyc
 *.so
 *.o
