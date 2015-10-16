@@ -57,3 +57,6 @@
 [submodule "sources/account_journal_payment_subtype"]
 	path = sources/account_journal_payment_subtype
 	url = git@github.com:csrocha/account_journal_payment_subtype.git
+[submodule "sources/account_voucher_payline"]
+	path = sources/account_voucher_payline
+	url = git@github.com:csrocha/account_voucher_payline.git
