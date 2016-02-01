@@ -10,9 +10,6 @@
 [submodule "sources/l10n_ar_chart"]
 	path = sources/l10n_ar_chart
 	url = git@github.com:odoo-l10n-ar/l10n_ar_chart.git
-[submodule "sources/l10n_ar_wsafip_puc"]
-	path = sources/l10n_ar_wsafip_puc
-	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip_puc.git
 [submodule "sources/l10n_ar_wsafip"]
 	path = sources/l10n_ar_wsafip
 	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip.git
