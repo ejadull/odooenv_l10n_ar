@@ -13,9 +13,6 @@
 [submodule "sources/l10n_ar_wsafip_puc"]
 	path = sources/l10n_ar_wsafip_puc
 	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip_puc.git
-[submodule "sources/l10n_ar_wsafip_fe"]
-	path = sources/l10n_ar_wsafip_fe
-	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip_fe.git
 [submodule "sources/l10n_ar_wsafip"]
 	path = sources/l10n_ar_wsafip
 	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip.git
