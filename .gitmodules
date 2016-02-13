@@ -14,10 +14,6 @@
 	path = sources/l10n_ar_chart
 	url = git@github.com:odoo-l10n-ar/l10n_ar_chart.git
 	branch = 8.0
-[submodule "sources/l10n_ar_wsafip_fe"]
-	path = sources/l10n_ar_wsafip_fe
-	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip_fe.git
-	branch = 8.0
 [submodule "sources/l10n_ar_wsafip"]
 	path = sources/l10n_ar_wsafip
 	url = git@github.com:odoo-l10n-ar/l10n_ar_wsafip.git

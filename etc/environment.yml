@@ -58,10 +58,10 @@ test:
         addons:
             l10n_ar_invoice
 
-    l10n_ar_wsafip_fe:
-        logfile: log/test_wsafip_fe.log
+    wsafip:
+        logfile: log/test_wsafip.log
         addons:
-            l10n_ar_wsafip_fe
+            l10n_ar_wsafip_fex
     crypto:
         addons:
             crypto
