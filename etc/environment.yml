@@ -58,13 +58,18 @@ test:
         addons:
             l10n_ar_invoice
 
-    wsafip:
-        logfile: log/test_wsafip.log
+    l10n_ar_wsafip_fe:
+        logfile: log/test_wsafip_fe.log
         addons:
-            l10n_ar_wsafip_fex
+            l10n_ar_wsafip_fe
     crypto:
         addons:
             crypto
+
+    tex:
+        addons:
+            l10n_ar_invoice_tex
+
 
 addons:
     config: '__openerp__.py'

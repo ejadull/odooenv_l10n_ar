@@ -42,3 +42,17 @@
 	path = sources/l10n_ar_invoice_tex
 	url = git@github.com:odoo-l10n-ar/l10n_ar_invoice_tex.git
 	branch = 8.0
+[submodule "sources/account_check"]
+	path = sources/account_check
+	url = git@github.com:csrocha/account_check.git
+	branch = 8.0
+[submodule "sources/odoo-l10n-ar-directdebit"]
+	path = sources/odoo-l10n-ar-directdebit
+	url = git@github.com:odoo-l10n-ar/odoo-l10n-ar-directdebit.git
+	branch = 8.0
+[submodule "sources/account_journal_payment_subtype"]
+	path = sources/account_journal_payment_subtype
+	url = git@github.com:csrocha/account_journal_payment_subtype.git
+[submodule "sources/account_voucher_payline"]
+	path = sources/account_voucher_payline
+	url = git@github.com:csrocha/account_voucher_payline.git
