@@ -20,7 +20,7 @@
       <!-- invoice notes -->
       <frame id="note"                x1="1.700cm"  y1="18.500cm" width="18.3cm" height="1.5cm"/>
       <!-- body -->
-      <frame id="details"             x1="1.700cm"  y1="6.0cm"    width="18.3cm" height="12.5cm"/>
+      <frame id="details"             x1="1.700cm"  y1="6.0cm"    width="18.3cm" height="13.5cm"/>
       <!-- footer -->
       <frame id="observ"              x1="1.700cm"  y1="4.0cm"    width="12.3cm" height="3.5cm"/>
       <frame id="calc_label"          x1="14.000cm" y1="4.0cm"    width="6.0cm"  height="3.5cm"/>
@@ -65,7 +65,23 @@
           spaceAfter='0cm'
           spaceBefore='0cm'
           />
-      <paraStyle name='tiny-note'
+      <paraStyle name='smalltiny'
+          fontName='Helvetica'
+          fontSize='4'
+          leading='6'
+          leftIndent='0cm'
+          spaceAfter='0cm'
+          spaceBefore='0cm'
+          />
+      <paraStyle name='smalltiny-bold'
+          fontName='Helvetica-Bold'
+          fontSize='4'
+          leading='6'
+          leftIndent='0cm'
+          spaceAfter='0cm'
+          spaceBefore='0cm'
+          />
+       <paraStyle name='tiny-note'
           fontName='Helvetica'
           fontSize='5'
           leading='6'
@@ -160,13 +176,13 @@
 	  <td><para><b>[[ l.name ]]</b></para><para>[[ l.note ]]</para></td>
           <td>[[ formatLang(l.quantity) ]]</td>
           <td>[[ l.uos_id.name ]]</td>
-	  <td><para>[[ formatLang(l.price_unit, digits=2) ]] $
+	  <td><para>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(l.price_unit, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]
 		  [[ (o.journal_id.code[:3] in [ 'FVA', 'NCA', 'NDA', 'FVM', 'FVE' ] or removeParentNode('td')) and '' ]]</para></td>
-	  <td><para>[[ formatLang(l.price_subtotal, digits=2) ]] $
+	  <td><para>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(l.price_subtotal, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]
 		  [[ (o.journal_id.code[:3] in [ 'FVA', 'NCA', 'NDA', 'FVM', 'FVE' ] or removeParentNode('td')) and '' ]]</para></td>
-	  <td><para>[[ formatLang(l.price_unit_included, digits=2) ]] $
+	  <td><para>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(l.price_unit_included, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]
 		  [[ (o.journal_id.code[:3] in [ 'FVA', 'NCA', 'NDA', 'FVM', 'FVE' ] and removeParentNode('td')) or '' ]]</para></td>
-	  <td><para>[[ formatLang(l.price_unit_included * l.quantity, digits=2) ]] $
+	  <td><para>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(l.price_unit_included * l.quantity, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]
 		  [[ (o.journal_id.code[:3] in [ 'FVA', 'NCA', 'NDA', 'FVM', 'FVE' ] and removeParentNode('td')) or '' ]]</para></td>
         </tr>
           </blockTable>
@@ -178,30 +194,49 @@
       <nextFrame/>
         <para style="tiny">El presente documento expresa su monto en [[ o.currency_id.name ]] ([[ o.currency_id.symbol ]])</para>
 	<spacer length="3"/>
-        <para style="tiny-bold">Información Bancaria</para>
-        <para style="tiny">CBU: 19100315-55003100186296</para>
-	<para style="tiny">No. Cuenta: CC$ 191-031-001862/9</para>
-        <para style="tiny">Banco: Banco Credicoop Coop. Ltdo., Sucursal 31</para>
-        <para style="tiny-bold">Información de Facturación</para>
-	<para style="tiny">Factura [[ ((o.journal_id.code[:3] in ['FVA', 'FVM', 'FVE' ]) or removeParentNode('para')) and '']] [[ o.number ]]</para>
-	<para style="tiny">Nota de Crédito [[ ((o.journal_id.code[:3] in ['NCA']) or removeParentNode('para')) and '']] [[ o.number ]]</para>
-	<para style="tiny">Nota de Débito [[ ((o.journal_id.code[:3] in ['NDA']) or removeParentNode('para')) and '']] [[ o.number ]]</para>
-	<para style="tiny">PRO-FORMA [[ ((o.type == 'out_invoice' and o.state == 'proforma2') or removeParentNode('para')) and '' ]]</para>
-	<para style="tiny">Factura Preliminar [[ ((o.type == 'out_invoice' and o.state == 'draft') or removeParentNode('para')) and '' ]]</para>
-	<para style="tiny">Factura Cancelada [[ ((o.type == 'out_invoice' and o.state == 'cancel') or removeParentNode('para')) and '' ]]</para>
+        <section>[[ o.partner_id.responsability_id.name != 'extrangero' and removeParentNode('section') ]]
+         <para style="tiny-bold">Información Bancaria</para>
+         <para style="tiny">CBU: 19100315-55003100186296</para>
+	 <para style="tiny">No. Cuenta: CC$ 191-031-001862/9</para>
+         <para style="tiny">Banco: Banco Credicoop Coop. Ltdo., Sucursal 31</para>
+         <para style="tiny-bold">Información de Facturación</para>
+	 <para style="tiny">Factura [[ ((o.journal_id.code[:3] in ['FVA', 'FVM', 'FVE' ]) or removeParentNode('para')) and '']] [[ o.number ]]</para>
+	 <para style="tiny">Nota de Crédito [[ ((o.journal_id.code[:3] in ['NCA']) or removeParentNode('para')) and '']] [[ o.number ]]</para>
+	 <para style="tiny">Nota de Débito [[ ((o.journal_id.code[:3] in ['NDA']) or removeParentNode('para')) and '']] [[ o.number ]]</para>
+	 <para style="tiny">PRO-FORMA [[ ((o.type == 'out_invoice' and o.state == 'proforma2') or removeParentNode('para')) and '' ]]</para>
+	 <para style="tiny">Factura Preliminar [[ ((o.type == 'out_invoice' and o.state == 'draft') or removeParentNode('para')) and '' ]]</para>
+	 <para style="tiny">Factura Cancelada [[ ((o.type == 'out_invoice' and o.state == 'cancel') or removeParentNode('para')) and '' ]]</para>
+        </section>
+        <section>[[ o.partner_id.responsability_id.name == 'extrangero' and removeParentNode('section') ]]
+         <!--para style="tiny-bold">Información Bancaria</para>
+         <para style="smalltiny">PAY TO / PAGAR A : Cooperativa de Trabajo Moldeo Interactive Limitada.</para>
+         <para style="smalltiny">ACCOUNT NBR: / CUENTA NRO: 191-031-001862/9.</para>
+         <para style="smalltiny">WITH / CON: BANCO CREDICOOP C.L. - BUENOS AIRES.</para>
+         <para style="smalltiny">SWIFT ADDRESS / DIRECCION SWIFT: BCOOARBA.</para>
+         <para style="smalltiny-bold">Option 1</para>
+         <para style="smalltiny">THROUGH / A TRAVÉS DE: WELLS FARGO BANK NA. – NEW YORK.</para>
+         <para style="smalltiny">SWIFT ADDRESS / DIRECCION SWIFT: PNBPUS3NNYC.</para>
+         <para style="smalltiny">ABA ROUTING NUMBER:026005092</para>
+         <para style="smalltiny">CHIPS:0509</para>
+         <para style="smalltiny-bold">Option 2</para>
+         <para style="smalltiny">THROUGH / A TRAVÉS DE: STANDARD CHARTERED BANK – NEW YORK.</para>
+         <para style="smalltiny">SWIFT ADDRESS / DIRECCION SWIFT: SCBLUS33.</para>
+         <para style="smalltiny">ABA ROUTING NUMBER: 026002561.</para>
+         <para style="smalltiny">CHIPS: 0256.</para-->
+        </section>
       <nextFrame/>
 	<blockTable colWidths="3cm,3cm" style="Total">
 	  <tr>
 	    <td>Subtotal:[[ ((o.journal_id.code[:3] in ['FVA', 'NCA', 'NDA', 'FVM' ]) or removeParentNode('tr')) and '']]</td>
-	    <td>[[ formatLang(o.amount_untaxed, digits=2) ]] $</td>
+	    <td>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(o.amount_untaxed, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]</td>
 	  </tr>
 	  <tr>
 	    <td>IVA 21%:[[ ((o.journal_id.code[:3] in ['FVA', 'NCA', 'NDA', 'FVM' ]) or removeParentNode('tr')) and '']]</td>
-	    <td>[[ formatLang(o.amount_tax, digits=2) ]] $</td>
+	    <td>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(o.amount_tax, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]</td>
 	  </tr>
 	  <tr>
 	    <td>Total:</td>
-	    <td>[[ formatLang(o.amount_total, digits=2) ]] $</td>
+	    <td>[[ o.currency_id.position == 'before' and o.currency_id.symbol or '' ]] [[ formatLang(o.amount_total, digits=2) ]] [[ o.currency_id.position == 'after' and o.currency_id.symbol or '' ]]</td>
 	  </tr>
         </blockTable>
     </story>
